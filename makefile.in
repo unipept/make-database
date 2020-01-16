@@ -15,6 +15,8 @@ database: \
 	<<<TABDIR>>>/go_terms.tsv.gz \
 	<<<TABDIR>>>/interpro_cross_references.tsv.gz \
 	<<<TABDIR>>>/interpro_entries.tsv.gz \
+	<<<TABDIR>>>/kegg_
+	<<<TABDIR>>>/kegg_pathways.tsv.gz \
 	<<<TABDIR>>>/lineages.tsv.gz \
 	<<<TABDIR>>>/peptides.tsv.gz \
 	<<<TABDIR>>>/proteome_cross_references.tsv.gz \

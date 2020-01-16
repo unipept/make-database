@@ -293,6 +293,29 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = ascii
 COLLATE = ascii_general_ci;
 
+-- -----------------------------------------------------
+-- Table `unipept`.`kegg_cross_references`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `unipept`.`kegg_cross_references` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `uniprot_entry_id` INT UNSIGNED NOT NULL ,
+  `kegg_pathway` VARCHAR(14) NOT NULL ,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = ascii
+COLLATE = ascii_general_ci;
+
+-- -----------------------------------------------------
+-- Table `unipept`.`kegg_pathways`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `unipept`.`kegg_pathways` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `pathway` VARCHAR(14) NOT NULL ,
+  `name` VARCHAR(160) NOT NULL ,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = ascii
+COLLATE = ascii_general_ci;
 
 -- -----------------------------------------------------
 -- Table `unipept`.`users`

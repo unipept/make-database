@@ -32,6 +32,10 @@ ALTER TABLE go_terms ADD UNIQUE INDEX idx_go_code (code ASC);
 -- -----------------------------------------------------
 ALTER TABLE interpro_entries ADD UNIQUE INDEX idx_interpro_code (code ASC);
 
+-- -----------------------------------------------------
+-- Table `unipept`.`kegg_pathways`
+-- -----------------------------------------------------
+ALTER TABLE kegg_pathways ADD UNIQUE INDEX idx_kegg_code (code ASC);
 
 -- -----------------------------------------------------
 -- Table `unipept`.`sequences`
@@ -78,6 +82,10 @@ ALTER TABLE ec_cross_references ADD INDEX fk_ec_reference_uniprot_entries (unipr
 -- -----------------------------------------------------
 ALTER TABLE interpro_cross_references ADD INDEX fk_interpro_reference_uniprot_entries (uniprot_entry_id ASC);
 
+-- -----------------------------------------------------
+-- Table `unipept`.`kegg_cross_references`
+-- -----------------------------------------------------
+ALTER TABLE kegg_cross_references ADD INDEX fk_kegg_reference_uniprot_entries (uniprot_entry_id ASC);
 
 -- -----------------------------------------------------
 -- Table `unipept`.`proteomes`
