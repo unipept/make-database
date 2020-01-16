@@ -10,3 +10,7 @@ createKeggPathways.sh
 type_strains.sh
 latest-config
 .DS_Store
+.classpath
+.project
+.settings
+.vscode
