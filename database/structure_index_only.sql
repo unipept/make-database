@@ -85,7 +85,7 @@ ALTER TABLE interpro_cross_references ADD INDEX fk_interpro_reference_uniprot_en
 -- -----------------------------------------------------
 -- Table `unipept`.`kegg_cross_references`
 -- -----------------------------------------------------
-ALTER TABLE kegg_cross_references ADD INDEX fk_kegg_reference_uniprot_entries (uniprot_entry_id ASC);
+ALTER TABLE kegg_cross_references ADD INDEX fk_kegg_reference_ec_code (ec_number_code ASC);
 
 -- -----------------------------------------------------
 -- Table `unipept`.`proteomes`

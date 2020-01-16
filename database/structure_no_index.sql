@@ -298,7 +298,7 @@ COLLATE = ascii_general_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `unipept`.`kegg_cross_references` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `uniprot_entry_id` INT UNSIGNED NOT NULL ,
+  `ec_number_code` VARCHAR(15) NOT NULL ,
   `kegg_pathway` VARCHAR(14) NOT NULL ,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB

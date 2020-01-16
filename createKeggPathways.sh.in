@@ -6,5 +6,5 @@ exec 3>&1
 
 pathways=http://rest.kegg.jp/list/path
 
-lines="$(wget -q "$pathways" -O - | tee >(cat >&3))"
+lines="$(wget -q "$pathways" -O - | nl -s "  " | tee >(cat >&3))"
 
