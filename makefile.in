@@ -15,7 +15,7 @@ database: \
 	<<<TABDIR>>>/go_terms.tsv.gz \
 	<<<TABDIR>>>/interpro_cross_references.tsv.gz \
 	<<<TABDIR>>>/interpro_entries.tsv.gz \
-	<<<TABDIR>>>/kegg_
+	<<<TABDIR>>>/kegg_cross_references.tsv.gz \
 	<<<TABDIR>>>/kegg_pathways.tsv.gz \
 	<<<TABDIR>>>/lineages.tsv.gz \
 	<<<TABDIR>>>/peptides.tsv.gz \
@@ -105,6 +105,7 @@ lineage_taxons: $(JAR) <<<INTDIR>>>/names.dmp <<<INTDIR>>>/clean-nodes.dmp
 <<<TABDIR>>>/embl_cross_references.tsv.gz: tables
 <<<TABDIR>>>/go_cross_references.tsv.gz: tables
 <<<TABDIR>>>/interpro_cross_references.tsv.gz: tables
+<<<TABDIR>>>/kegg_cross_references.tsv.gz: tables
 <<<TABDIR>>>/proteome_cross_references.tsv.gz: tables
 <<<TABDIR>>>/refseq_cross_references.tsv.gz: tables
 <<<TABDIR>>>/uniprot_entries.tsv.gz: tables
@@ -122,6 +123,7 @@ tables: $(JAR) <<<TABDIR>>>/taxons.tsv.gz <<<SOURCE_FILES>>>
 		--embl            >(<<<CMD_GZIP>>> > <<<TABDIR>>>/embl_cross_references.tsv.gz) \
 		--go              >(<<<CMD_GZIP>>> > <<<TABDIR>>>/go_cross_references.tsv.gz) \
 		--interpro        >(<<<CMD_GZIP>>> > <<<TABDIR>>>/interpro_cross_references.tsv.gz) \
+		--kegg            >(<<<CMD_GZIP>>> > <<<TABDIR>>>/kegg_cross_references.tsv.gz) \
 		--proteomes       >(<<<CMD_GZIP>>> > <<<INTDIR>>>/proteomes.tsv.gz) \
 		--proteomes-ref   >(<<<CMD_GZIP>>> > <<<TABDIR>>>/proteome_cross_references.tsv.gz) \
 		<<<SOURCE_INPUTS>>>
@@ -312,6 +314,13 @@ tables: $(JAR) <<<TABDIR>>>/taxons.tsv.gz <<<SOURCE_FILES>>>
 	@mkdir -p $(dir $@)
 	./createInterProEntries.sh | <<<CMD_GZIP>>> > $@
 	<<<LOGADD>>> "Finished creating InterPro entries."
+
+<<<TABDIR>>>/kegg_pathways.tsv.gz: createKeggPathways.sh
+	<<<LOGADD>>> "started creating KEGG Pathways"
+	@mkdir -p $(dir $@)
+	./createKeggPathways.sh | <<<CMD_GZIP>>> > $@
+	<<<LOGADD>>> "Finished creating KEGG pathways."
+
 # }}}
 
 .PHONY: clean_intermediates
