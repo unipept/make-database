@@ -1,0 +1,10 @@
+#!/bin/bash
+# Parse all the different KEGG-pathways.
+
+set -o pipefail -e
+exec 3>&1
+
+pathways=http://rest.kegg.jp/list/path
+
+lines="$(wget -q "$pathways" -O - | tee >(cat >&3))"
+
