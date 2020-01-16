@@ -6,5 +6,7 @@ proteomes.sh
 createEcNumbers.sh
 createGoTerms.sh
 createInterProEntries.sh
+createKeggPathways.sh
 type_strains.sh
 latest-config
+.DS_Store
