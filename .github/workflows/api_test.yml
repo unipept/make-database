@@ -2,14 +2,14 @@ name: Log latest release
 on: [push]
 
 jobs:
-  logLatestRelease:
+  logLatestCommits:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/request-action@master
-        id: get_latest_release
+        id: log_latest_commit
         with:
-          route: GET /repos/:repository/releases/latest
+          route: GET /repos/:owner/:repo/commits
           repository: ${{ github.repository }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: "echo latest release: ${{ steps.log_latest_commit.outputs.data }}"
