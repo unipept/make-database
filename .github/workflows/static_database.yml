@@ -43,6 +43,8 @@ jobs:
         run: |
           chmod +x workflows/static_database/build_database.sh
           ./workflows/static_database/build_database.sh
+      - name: ls
+        run: ls -hl
       - name: Update database versioning
         shell: bash
         run: |
