@@ -5,7 +5,7 @@ jobs:
   logLatestRelease:
     runs-on: ubuntu-latest
     steps:
-      - uses: octokit/request-action@v2
+      - uses: octokit/request-action@master
         id: get_latest_release
         with:
           route: GET /repos/:repository/releases/latest
