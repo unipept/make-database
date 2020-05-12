@@ -65,7 +65,7 @@ jobs:
         with:
           route: POST /repos/:owner/:repo/git/tags
           owner: unipept
-          repo: ${{ github.repository }}
+          repo: make-database
           name: database-${{ steps.date.outputs.date }}
           message: "Static information database built on ${{ steps.date.outputs.date }}"
           object: ${{ steps.commit_sha.outputs.sha }}
