@@ -1,9 +1,9 @@
 name: Database
 
-on:
-  schedule:
+on: [push]
+ # schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 0 1 * *'
+   # - cron:  '0 0 1 * *'
 
 jobs:
   generate_static_database:
@@ -64,7 +64,8 @@ jobs:
         id: create_new_tag
         with:
           route: POST /repos/:owner/:repo/git/tags
-          repository: ${{ github.repository }}
+          owner: unipept
+          repo: ${{ github.repository }}
           name: database-${{ steps.date.outputs.date }}
           message: "Static information database built on ${{ steps.date.outputs.date }}"
           object: ${{ steps.commit_sha.outputs.sha }}
