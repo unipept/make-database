@@ -80,7 +80,7 @@ Which pipe compression command should I use? \[gzip -\] "
 send -- "\r"
 expect -exact "\r
 Which pipe decompression command (e.g. zcat, gzcat) should I use? \[zcat\] "
-send -- "gzcat"
+send -- "zcat"
 expect -exact " "
 send -- ""
 expect -exact " "
